@@ -1,0 +1,24 @@
+#include "play/play.h"
+#include "goto/goto.h"
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	cout << "Input size of row: ";
+	int row; cin >> row;
+	cout << "Input size of collum: ";
+	int collum; cin >> collum;
+	GotoXY(0, 0); cout << "                                            ";
+	GotoXY(0, 1); cout << "                                            ";
+	bool role = play_caro(row, collum);
+
+	int len = 1;
+	int x_pos = 20;
+	int y_pos = 5;
+	GotoXY(x_pos + collum * (len * 3 + 1), y_pos + row * (len + 1));
+	cout << '\n';
+	cout << (role ? "Blue win" : "Red win");
+
+	return 0;
+}
